@@ -7,7 +7,13 @@ defmodule FirebasePushid.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     # Docs
+     name: "firebase_pushid",
+     source_url: "https://github.com/arturictus/firebase_pushid",
+     homepage_url: "https://github.com/arturictus/firebase_pushid",
+     docs: [main: "FirebasePushid",
+            extras: ["README.md"]]]
   end
 
   # Configuration for the OTP application
@@ -29,6 +35,8 @@ defmodule FirebasePushid.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false}
+    ]
   end
 end
