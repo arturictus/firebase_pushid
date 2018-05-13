@@ -12,9 +12,12 @@ defmodule FirebasePushid.Mixfile do
 
      # Hex
      description: "Generates a timestamp based id as Firebase does.",
-     source_url: @github_url,
+     package: package(),
+
+     # Docs
+     name: "firebase_pushid",
      homepage_url: @github_url,
-     package: package()]
+     docs: docs()]
   end
 
   # Configuration for the OTP application
@@ -36,7 +39,9 @@ defmodule FirebasePushid.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false}
+    ]
   end
 
   defp package do
@@ -46,6 +51,12 @@ defmodule FirebasePushid.Mixfile do
       files: ~w(mix.exs lib README.md),
       links: %{ "GitHub" => @github_url }
     ]
+  end
+
+  defp docs do
+    [main: "FirebasePushid",
+     source_url: @github_url,
+     extras: ["README.md"]]
   end
 
 end
