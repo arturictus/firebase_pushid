@@ -1,5 +1,6 @@
 defmodule FirebasePushid.Mixfile do
   use Mix.Project
+  @github_url "https://github.com/arturictus/firebase_pushid"
 
   def project do
     [app: :firebase_pushid,
@@ -7,7 +8,13 @@ defmodule FirebasePushid.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+
+     # Hex
+     description: "Generates a timestamp based id as Firebase does.",
+     source_url: @github_url,
+     homepage_url: @github_url,
+     package: package()]
   end
 
   # Configuration for the OTP application
@@ -31,4 +38,14 @@ defmodule FirebasePushid.Mixfile do
   defp deps do
     []
   end
+
+  defp package do
+    [
+      maintainers: ["Artur Panach"],
+      licenses: ["MIT"],
+      files: ~w(mix.exs lib README.md),
+      links: %{ "GitHub" => @github_url }
+    ]
+  end
+
 end
